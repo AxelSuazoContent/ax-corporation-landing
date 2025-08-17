@@ -1,4 +1,9 @@
+
+
+
+
 export default function Home() {
+  
   return (
     <main className="bg-axbg text-white min-h-screen">
       {/* Navbar */}
