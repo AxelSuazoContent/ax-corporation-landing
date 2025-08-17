@@ -13,21 +13,20 @@ Este proyecto es una aplicación desarrollada con **React** y **Tailwind CSS**. 
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/tuusuario/NombreDelProyecto.git
-cd NombreDelProyecto
+git clone https://github.com/tuusuario/ax-corporation-landing.git
+cd ax-corporation-landing
 Instala las dependencias:
 
-bash
-Copiar
-Editar
+**bash**
+
 npm install
 Configura Tailwind CSS (si aún no está inicializado):
 
-bash
-Copiar
-Editar
+**bash**
+
 npx tailwindcss init -p
-Esto generará:
+
+**Esto generará:**
 
 tailwind.config.js
 
@@ -35,36 +34,30 @@ postcss.config.js (si no existía)
 
 Asegúrate de incluir Tailwind en tu CSS principal (src/index.css o src/globals.css):
 
-css
-Copiar
-Editar
+**css**
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 Ejecuta el proyecto:
 
-bash
-Copiar
-Editar
+**bash**
 npm run dev
-o si usas CRA:
 
-bash
-Copiar
-Editar
+**o si usas CRA:**
+
 npm start
-Estructura de carpetas
-text
-Copiar
-Editar
+
+**Estructura de carpetas**
+
 src/
 ├─ components/      # Componentes React reutilizables
 ├─ pages/           # Páginas de la aplicación
 ├─ assets/          # Imágenes, íconos y otros recursos
 ├─ styles/          # CSS global y configuraciones Tailwind
 └─ App.jsx          # Componente raíz
-Contribución
-Si deseas contribuir:
+
+**Si deseas contribuir:**
 
 Haz un fork del proyecto.
 
@@ -79,11 +72,8 @@ Abre un Pull Request.
 Licencia
 Este proyecto está bajo la licencia MIT.
 
-markdown
-Copiar
-Editar
 
-💡 **Tips:**  
+ **Tips:**  
 - Cambia `NombreDelProyecto` por el nombre real.  
 - Completa la descripción según tu proyecto.  
 - Ajusta los comandos si usas Vite o CRA.  
