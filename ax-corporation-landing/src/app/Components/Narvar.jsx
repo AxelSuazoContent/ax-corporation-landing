@@ -8,7 +8,7 @@ export default function Narvar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-white text-gray-800 shadow-xl px-6 py-3 flex items-center h-16 justify-between">
+    <nav className="w-full bg-white text-gray-800 shadow-md px-6 py-3 flex items-center h-16 justify-between fixed top-0 left-0 z-50">
       {/* Logo + Nombre */}
       <div className="flex items-center gap-x-2 ml-4">
         <Image 

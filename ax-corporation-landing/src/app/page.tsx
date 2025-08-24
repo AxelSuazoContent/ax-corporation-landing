@@ -1,6 +1,8 @@
 import Narvar from "./Components/Narvar";
-//import Body from "@/components/Body";
-//import Footer from "@/components/Footer";C:\Users\Ryzen Gaming\Documents\Proyecto Minidip\ax-corporation-landing\ax-corporation-landing\src\app\Components\Narvar.jsx
+// import Body from "@/components/Body";
+import Footer from "./Components/Foooter";
+import Armado from "./Components/Armado-Body/Armado";
+
 import { Merriweather_Sans } from "next/font/google";
 
 
@@ -12,9 +14,10 @@ export default function Home() {
 
       {/* BODY */}
       
+      <Armado />
 
       {/* FOOTER */}
-      
+      <Footer />
     </main>
   );
 }
