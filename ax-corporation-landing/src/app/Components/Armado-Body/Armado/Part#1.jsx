@@ -2,6 +2,16 @@
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
+
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -64; // Altura de la navbar si es fija
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="w-full bg-white pt-16">
       <div className="max-w-7xl mx-auto px-6 py-12">
@@ -20,7 +30,10 @@ export default function HeroSection() {
               <p className="text-lg text-gray-700">
                 Desarrollando habilidades para dar forma a un futuro mejor
               </p>
-              <button className="self-start  bg-white border border-gray-300 text-gray-900 font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition">
+              <button
+                onClick={() => handleScroll("contacto")}
+                className="self-start bg-white border border-gray-300 text-gray-900 font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition"
+              >
                 Contáctanos
               </button>
             </div>

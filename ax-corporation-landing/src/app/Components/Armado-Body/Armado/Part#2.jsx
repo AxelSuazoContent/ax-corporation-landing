@@ -83,7 +83,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="w-full bg-white py-16 px-6" id="servicios">
+    <section  className=" w-full bg-white py-16 px-6" id="Servicios">
       <div className="max-w-7xl mx-auto text-Left">
         {/* Título */}
         <h2 className="text-6xl font-bold text-gray-900 mb-2">

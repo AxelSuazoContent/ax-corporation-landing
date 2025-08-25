@@ -6,16 +6,16 @@ import Swal from "sweetalert2";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    nombre: "",
-    telefono: "",
-    empresa: "",
-    mensaje: "",
-    cargo: "",
-  });
+  nombre: "",
+  email: "", // 🔹 Cambiado para coincidir con Google Script
+  empresa: "",
+  cargo: "",
+  mensaje: ""
+});
   const [loading, setLoading] = useState(false);
 
   // ⚠️ IMPORTANTE: Reemplaza esta URL con la URL de tu Apps Script desplegado
-  const SCRIPT_URL = "https://script.google.com/macros/s/TU_SCRIPT_ID_AQUI/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzeb7YpLI3j7EpKobwGcrpYKPMsHs6M4B_iyhcH28z34yti3FT_-bCuma2m1SM7hBsN/exec";
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -50,7 +50,7 @@ export default function ContactForm() {
 
       // Con mode: 'no-cors', no podemos leer la respuesta
       // Asumimos que funcionó si no hay error
-      console.log("✅ Datos enviados correctamente");
+      
 
       setLoading(false);
 
@@ -64,7 +64,7 @@ export default function ContactForm() {
       // Limpiar formulario
       setFormData({ 
         nombre: "", 
-        telefono: "", 
+        email: "", 
         empresa: "", 
         mensaje: "", 
         cargo: "" 
@@ -72,7 +72,7 @@ export default function ContactForm() {
 
     } catch (error) {
       setLoading(false);
-      console.error("❌ Error en la conexión:", error);
+      
 
       Swal.fire({
         icon: "error",
@@ -84,87 +84,96 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="w-full bg-white py-16 px-4">
+    <section id="contacto" className="w-full bg-white py-16 px-4">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 items-center">
         
         {/* Formulario */}
         <div className="w-full md:w-1/2">
-          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 leading-snug mb-8">
-            <span className="block border-b-4 border-[#00C4B4] w-24 mb-4"></span>
-            CONTÁCTANOS
-          </h2>
+  <h2 className="text-4xl md:text-6xl font-bold text-gray-900 leading-snug mb-8">
+    <span className="block border-b-4 border-[#00C4B4] w-24 mb-4"></span>
+    CONTÁCTANOS
+  </h2>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-gray-700 mb-1 text-sm md:text-base">
-                Nombre completo <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                name="nombre"
-                value={formData.nombre}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#00C4B4]"
-                required
-                placeholder="Ingresa tu nombre completo"
-              />
-            </div>
+  <form onSubmit={handleSubmit} className="space-y-4">
+    {/* Nombre */}
+    <div>
+      <label className="block text-black mb-1 text-sm md:text-base">
+        Nombre completo <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        name="nombre"
+        value={formData.nombre}
+        onChange={handleChange}
+        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#00C4B4]"
+        required
+        placeholder="Ingresa tu nombre completo"
+      />
+    </div>
 
-            <div>
-              <label className="block text-gray-700 mb-1 text-sm md:text-base">
-                Número de teléfono (opcional)
-              </label>
-              <input
-                type="tel"
-                name="telefono"
-                value={formData.telefono}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#00C4B4]"
-                placeholder="+504 1234-5678"
-              />
-            </div>
+    {/* Correo */}
+    <div>
+      <label className="block text-black mb-1 text-sm md:text-base">
+        Correo electrónico <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#00C4B4]"
+        required
+        placeholder="ejemplo@correo.com"
+      />
+    </div>
 
-            <div>
-              <label className="block text-gray-700 mb-1 text-sm md:text-base">
-                Empresa / Organización
-              </label>
-              <input
-                type="text"
-                name="empresa"
-                value={formData.empresa}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#00C4B4]"
-                placeholder="Nombre de tu empresa"
-              />
-            </div>
+    {/* Empresa */}
+    <div>
+      <label className="block text-black mb-1 text-sm md:text-base">
+        Empresa / Organización
+      </label>
+      <input
+        type="text"
+        name="empresa"
+        value={formData.empresa}
+        onChange={handleChange}
+        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#00C4B4]"
+        placeholder="Nombre de tu empresa"
+      />
+    </div>
 
-            <div>
-              <label className="block text-gray-700 mb-1 text-sm md:text-base">
-                Cargo / Puesto
-              </label>
-              <input
-                type="text"
-                name="cargo"
-                value={formData.cargo}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#00C4B4]"
-                placeholder="Tu cargo o posición"
-              />
-            </div>
+    {/* Cargo */}
+    <div>
+      <label className="block text-black mb-1 text-sm md:text-base">
+        Cargo / Puesto
+      </label>
+      <input
+        type="text"
+        name="cargo"
+        value={formData.cargo}
+        onChange={handleChange}
+        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#00C4B4]"
+        placeholder="Tu cargo o posición"
+      />
+    </div>
 
-            <div>
-              <label className="block text-gray-700 mb-1 text-sm md:text-base">
-                Mensaje
-              </label>
-              <textarea
-                name="mensaje"
-                value={formData.mensaje}
-                onChange={handleChange}
-                rows="4"
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#00C4B4] resize-vertical"
-                placeholder="Cuéntanos en qué podemos ayudarte..."
-              ></textarea>
-            </div>
+    {/* Mensaje */}
+    <div>
+      <label className="block text-black mb-1 text-sm md:text-base">
+        Mensaje
+      </label>
+      <textarea
+        name="mensaje"
+        value={formData.mensaje}
+        onChange={handleChange}
+        rows="4"
+        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-[#00C4B4] resize-vertical"
+        placeholder="Cuéntanos en qué podemos ayudarte..."
+      ></textarea>
+    </div>
+
+    
+
 
             <button
               type="submit"
@@ -227,9 +236,10 @@ export default function ContactForm() {
             <p className="text-lg md:text-xl text-gray-200 mb-6 max-w-md">
               Creamos sitios web y aplicaciones que destacan en cualquier dispositivo
             </p>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg transition duration-300 transform hover:scale-105 shadow-lg">
-              ÚNETE A AX CORPORATION →
-            </button>
+            <div className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold text-lg transition duration-300 transform hover:scale-105 shadow-lg  select-none inline-block">
+  ÚNETE A AX CORPORATION →
+</div>
+
           </div>
 
           {/* Imagen/Ilustración */}
