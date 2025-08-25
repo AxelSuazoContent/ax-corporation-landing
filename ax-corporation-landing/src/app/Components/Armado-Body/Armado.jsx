@@ -13,6 +13,8 @@ export default function Home() {
     
       <Part1 />
       <Part2 />
+      <Part3 />
+      <Part4 />
       
     </main>
   );

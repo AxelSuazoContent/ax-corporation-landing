@@ -29,7 +29,7 @@ export default function Narvar() {
       {/* Links */}
       <div className="hidden md:flex space-x-6 font-semibold text-gray-700">
         <a href="#contacto" className="hover:text-blue-600">Contáctanos</a>
-        <a href="#soluciones" className="hover:text-blue-600">Soluciones</a>
+        <a href="#soluciones" className="hover:text-blue-600">Servicios</a>
         <a href="#nosotros" className="hover:text-blue-600">Nosotros</a>
       </div>
 
@@ -42,7 +42,7 @@ export default function Narvar() {
       {open && (
         <div className="absolute top-16 left-0 w-full bg-white shadow-md flex px-6 flex-col items-left space-y-4 py-4 font-semibold text-gray-700 md:hidden z-50">
           <a href="#contacto" className="hover:text-blue-600">Contáctanos</a>
-          <a href="#soluciones" className="hover:text-blue-600">Soluciones</a>
+          <a href="#soluciones" className="hover:text-blue-600">Servicios</a>
           <a href="#nosotros" className="hover:text-blue-600">Nosotros</a>
         </div>
       )}

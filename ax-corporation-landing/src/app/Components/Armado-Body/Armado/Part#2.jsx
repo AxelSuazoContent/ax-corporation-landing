@@ -1,6 +1,6 @@
 // src/components/ServicesSection.jsx
 "use client";
- import Image from "next/image";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const services = [
@@ -9,70 +9,77 @@ const services = [
     title: "Adobe Illustrator",
     studio: "AX Studio",
     description:
-      "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-    price: "$29.90",
-    oldPrice: "$39.90",
+      "Diseñamos ilustraciones profesionales, gráficas vectoriales y material visual de alta calidad para tu marca o proyecto, utilizando Adobe Illustrator.",
+    price: "$250.00",
+    oldPrice: "$300.00",
     rating: "★ ★ ★ ★ ★ (2.1k)",
-    badge: "Best Seller",
-    discount: "25% OFF",
+    badge: "Más solicitado",
+    discount: "15% OFF",
+    image: "/527-adobe_logo.webp", // 👈 Pon aquí tu imagen de Illustrator
   },
   {
     id: 2,
     title: "Autocad",
     studio: "AX Studio",
     description:
-      "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-    price: "$34.50",
-    oldPrice: "$45.00",
+      "Servicios de diseño técnico y modelado en 2D y 3D con AutoCAD. Creamos planos arquitectónicos, industriales y estructurales con precisión profesional.",
+    price: "$400.00",
+    oldPrice: "$480.00",
     rating: "★ ★ ★ ★ ☆ (1.5k)",
-    badge: "Best Seller",
+    badge: "Más solicitado",
     discount: "20% OFF",
+    image: "/AutoCad_new_logo.svg.png", // 👈 Pon aquí tu imagen de AutoCAD
   },
   {
     id: 3,
     title: "Figma Studio",
     studio: "AX Studio",
-    description: "4/10 Videos Completed",
-    price: "$18.75",
-    oldPrice: "$24.90",
-    rating: "★ ★ ★ ☆ ☆ (480)", // menos rating
+    description:
+      "Diseño de interfaces modernas y prototipos interactivos con Figma. Creamos experiencias digitales atractivas y funcionales para páginas web y apps.",
+    price: "$350.00",
+    oldPrice: "$420.00",
+    rating: "★ ★ ★ ☆ ☆ (480)",
+    image: "/figma_logo.webp", // 👈 Pon aquí tu imagen de Figma
   },
   {
     id: 4,
-    title: "Adobe Illustrator",
+    title: "Programación web",
     studio: "AX Studio",
     description:
-      "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-    price: "$31.20",
-    oldPrice: "$42.00",
+      "Desarrollamos páginas web modernas, responsivas y optimizadas. Desde sitios corporativos hasta aplicaciones web completas a la medida de tu negocio.",
+    price: "$1500.00",
+    oldPrice: "$1800.00",
     rating: "★ ★ ★ ★ ☆ (1.8k)",
-    badge: "Best Seller",
+    badge: "Más solicitado",
     discount: "15% OFF",
+    image: "/Desarrolladores-web.png", // 👈 Pon aquí tu imagen de Programación Web
   },
   {
     id: 5,
-    title: "Autocad",
+    title: "Programación móvil",
     studio: "AX Studio",
     description:
-      "More than 8yr Experience as Illustrator. Learn how to becoming professional Illustrator Now...",
-    price: "$27.40",
-    oldPrice: "$34.90",
+      "Creamos aplicaciones móviles personalizadas para Android e iOS, optimizadas para rendimiento y experiencia de usuario.",
+    price: "$1800.00",
+    oldPrice: "$2100.00",
     rating: "★ ★ ★ ★ ☆ (1.1k)",
-    
-    discount: "20% OFF",
+    discount: "15% OFF",
+    image: "/movil1.png", // 👈 Pon aquí tu imagen de Programación Móvil
   },
   {
     id: 6,
-    title: "Figma Studio",
+    title: "Diseñar Logo",
     studio: "AX Studio",
-    description: "4/10 Videos Completed",
-    price: "$16.90",
-    oldPrice: "$21.50",
-    badge: "Best Seller",
-    rating: "★ ★ ☆ ☆ ☆ (230)", // rating más bajo
+    description:
+      "Diseñamos logotipos únicos y memorables que reflejan la identidad y valores de tu marca, garantizando impacto visual y profesionalismo.",
+    price: "$200.00",
+    oldPrice: "$250.00",
+    badge: "Más solicitado",
+    discount: "20% OFF",
+    rating: "★ ★ ★ ☆ (230)",
+    image: "/AX-logo-SinFodno.png", // 👈 Pon aquí tu imagen de Diseño de Logo
   },
 ];
-
 
 export default function ServicesSection() {
   return (
@@ -90,30 +97,27 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {services.map((service) => (
             <motion.div
-  key={service.id}
-  className="relative bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition-shadow duration-300"
-  whileHover={{ scale: 1.05 }}
->
-              {/* Imagen/logo */}
-            
+              key={service.id}
+              className="relative bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition-shadow duration-300"
+              whileHover={{ scale: 1.05 }}
+            >
+              {/* Imagen del servicio */}
+              <div className="flex justify-center items-center mb-4 h-32">
+                <Image
+                  src={service.image}
+                  alt={`${service.title} - ${service.studio}`}
+                  width={service.id === 2 ? 200 : service.id === 6 ? 120 : 150}
+                  height={service.id === 2 ? 100 : service.id === 6 ? 120 : 80}
+                  className="object-contain"
+                />
+              </div>
 
-        <div className="flex justify-center mb-4">
-          <Image
-            src="/AX-Logo-FondoBlanco.png"   // 👉 coloca tu ruta aquí (por ejemplo en /public/images/logo-ax.png)
-            alt="AX Corporation Logo"
-            width={150}   // ajusta el tamaño
-            height={80}
-            className="object-contain"
-          />
-        </div>
-
-
-               {/* Badge */}
-  {service.badge && (
-    <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs px-3 py-1 rounded-full shadow-md">
-      {service.badge} - {service.discount}
-    </span>
-  )}
+              {/* Badge */}
+              {service.badge && (
+                <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs px-3 py-1 rounded-full shadow-md">
+                  {service.badge} - {service.discount}
+                </span>
+              )}
 
               {/* Info */}
               <h3 className="text-lg font-semibold text-gray-800">
